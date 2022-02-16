@@ -200,5 +200,8 @@ const data = [
     {id:199, first_name:"Annabal", last_name:"Rablan", email:"arablan5i@prweb.com", gender:"Female"},
     {id:200, first_name:"Paul", last_name:"Dyster", email:"pdyster5j@multiply.com", gender:"Male"},
 ];
+// ES6 module export
+// export default data;
 
+//commonJS export
 module.exports = data;

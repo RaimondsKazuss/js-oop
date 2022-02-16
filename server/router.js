@@ -1,3 +1,4 @@
+// commonJS module import
 const express = require('express');
 const router = express.Router();
 
@@ -12,6 +13,7 @@ router.get('/', function (req, res) {
 // READ
 // this api end-point returns an object from a data array find by id
 // we get `id` from URL end-points
+
 router.get('/:id', function (req, res) {
     // find an object from `data` array match by `id`
     let found = data.find(function (item) {
