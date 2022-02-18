@@ -8,11 +8,11 @@ document.querySelector('body').appendChild(table.init())
 
 // get data from "server", populate table with data
 //TODO: fix errors
-fetch('http://localhost:3000/router')
-    .then(response => response.json())
-    .then(json => {
-        json.map(row => {
-            document.querySelector('table')
-                    .appendChild(table.row(row))
-        })
-    })
+// fetch('http://localhost:3000/router')
+//     .then(response => response.json())
+//     .then(json => {
+//         json.map(row => {
+//             document.querySelector('table')
+//                     .appendChild(table.row(row))
+//         })
+//     })

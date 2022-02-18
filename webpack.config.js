@@ -24,7 +24,8 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             }
-        ]
+        ],
+        exprContextCritical: false
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -32,5 +33,27 @@ module.exports = {
             template: path.resolve(__dirname, 'index.html'),
             filename: 'index.html'
         })
-    ]
+    ],
+    resolve: {
+        fallback: {
+          "fs": false,
+          "tls": false,
+          "net": false,
+          "path": false,
+          "zlib": false,
+          "http": false,
+          "https": false,
+          "stream": false,
+          "crypto": false,
+          "url": false,
+          "querystring": false 
+        },
+      
+      },
+     
+  
+   
+  
+      
+
 }
