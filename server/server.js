@@ -1,20 +1,21 @@
-// commonJS module import
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const app = express()
+const port = 3000
+var cors = require('cors')
+app.use(cors())
 
 let data = require('./data')
 
 // READ
 // this api end-point of an API returns JSON data array
-router.get('/', function (req, res) {
+app.get('/', function (req, res) {
     res.status(200).json(data);
 });
 
 // READ
 // this api end-point returns an object from a data array find by id
 // we get `id` from URL end-points
-
-router.get('/:id', function (req, res) {
+app.get('/:id', function (req, res) {
     // find an object from `data` array match by `id`
     let found = data.find(function (item) {
         return item.id === parseInt(req.params.id);
@@ -30,7 +31,7 @@ router.get('/:id', function (req, res) {
 // CREATE
 // this api end-point add new object to item list
 // that is add new object to `data` array
-router.post('/', function (req, res) {
+app.post('/', function (req, res) {
     // get itemIds from data array
     let itemIds = data.map(item => item.id);
 
@@ -59,7 +60,7 @@ router.post('/', function (req, res) {
 // UPDATE
 // this api end-point update an existing item object
 // for that we get `id` and `title` from api end-point of item to update
-router.put('/:id', function (req, res) {
+app.put('/:id', function (req, res) {
     console.log(req);
     // get item object match by `id`
     // let found = data.find(function (item) {
@@ -94,7 +95,7 @@ router.put('/:id', function (req, res) {
 // DELETE
 // this api end-point delete an existing item object from
 // array of data, match by `id` find item and then delete
-router.delete('/:id', function (req, res) {
+app.delete('/:id', function (req, res) {
     // find item from array of data
     let found = data.find(function (item) {
         return item.id === parseInt(req.params.id);
@@ -117,4 +118,6 @@ router.delete('/:id', function (req, res) {
 
 // module.exports is an object included in every JS file of Node.js
 // application, whatever we assign to module.exports will be exposed as a module.
-module.exports = router;
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })

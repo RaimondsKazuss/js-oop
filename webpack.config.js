@@ -4,13 +4,14 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     entry: {
-        main: path.resolve(__dirname, 'src/index.js')
+        main: path.resolve(__dirname, 'index.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.bundle.js',
         clean: true,
     },
+    devtool: 'inline-source-map',
     devServer: {
         static: {
             directory: path.join(__dirname, 'public'),
@@ -21,10 +22,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-            }
-        ]
+              test: /\.css$/i,
+              exclude: /node_modules/,
+              use: ["style-loader", "css-loader"],
+            },
+          ], 
     },
     plugins: [
         new HtmlWebpackPlugin({

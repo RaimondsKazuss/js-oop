@@ -18,15 +18,16 @@ export default class Table {
 
     // create table row
     row(data) {
-        const row = document.createElement('tr');
+        const row = document.createElement("tr");
         row.id = `${data.id}`;
-
+        
         row.innerHTML = `
-        <td>${data.id}</td>
-        <td>${data.first_name}</td>
-        <td>${data.last_name}</td>
-        <td>${data.email}</td>
-        <td>${data.gender}</td>
-        `
-    }
+            <td>${data.id}</td>
+            <td class="name">${data.first_name}</td>
+            <td class="last-name">${data.last_name}</td>
+            <td class="email">${data.email}</td>
+            <td>${data.gender}</td>`;
+
+        return row;
+    };
 }
