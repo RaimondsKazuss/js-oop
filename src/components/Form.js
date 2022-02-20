@@ -1,3 +1,4 @@
+
 class Form {
     // initialize form
     init (data, formType) {

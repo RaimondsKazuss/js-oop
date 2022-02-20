@@ -1,8 +1,9 @@
+
 export default class Table {
     // intialize table
     init() {
         const table = document.createElement('table');
-
+        table.setAttribute('id', 'table')
         table.innerHTML = `
             <tr>
                 <th>ID</th>
@@ -24,10 +25,12 @@ export default class Table {
         row.innerHTML = `
             <td>${data.id}</td>
             <td class="name">${data.first_name}</td>
+            
             <td class="last-name">${data.last_name}</td>
             <td class="email">${data.email}</td>
             <td>${data.gender}</td>`;
-
         return row;
     };
 }
+
+
